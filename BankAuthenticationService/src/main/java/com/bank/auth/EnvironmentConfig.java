@@ -1,4 +1,4 @@
-package com.hellokoding.springboot;
+package com.bank.auth;
 
 import java.net.URL;
 

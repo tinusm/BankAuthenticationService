@@ -26,7 +26,7 @@ public class LoginController {
 	private static Database db = null;
 
 	@CrossOrigin
-	@RequestMapping(value ="/authenticate/{username}/{password}", method = RequestMethod.GET)
+	@RequestMapping(value ="/authenticate/{username}/{password}", method = RequestMethod.POST)
 	public LoginReview checkInfo(@PathVariable("username") String username, @PathVariable("password") String password) {
 	System.out.println("Inside Checkout");
 		Database db = createDB(); 
@@ -39,7 +39,9 @@ public class LoginController {
 			System.out.println("username :" + r.getUsername() + " Password :  " + r.getPassword());
 			if(r.getUsername().equals(username) && r.getPassword().equals(password))
 			{
+				System.out.println("Entered");
 				returnValue = r;
+				System.out.println(requests.get(0).getAccountId());
 				return returnValue;
 			}
 			else
